@@ -5,8 +5,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Welcome to Python Flask Application - MalliKarjuna"
+    delay = random.uniform(0.3, 0.7)
+    time.sleep(delay)
 
+    # Respond with a JSON message
+    response = {"message": "Hello, world!"}
+    return jsonify(response)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
